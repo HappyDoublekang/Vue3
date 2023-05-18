@@ -16,10 +16,13 @@
         <span :class="{done:todo.done}">{{todo.title}}</span>
       </li>
     </ul>
-    <div>
+    <!-- <div>
       {{ todos.filter(v => !v.done).length }}
       /
       {{ todos.length }}
+    </div> -->
+    <div>
+      {{ active }} / {{ all }}
     </div>
   </div>
   <script src="https://unpkg.com/vue@next"></script>
@@ -32,6 +35,14 @@
             {title:'吃饭',done:false},
             {title:'睡觉',done:true}
           ]
+        }
+      },
+      computed: {
+        active() {
+          return this.todos.filter(v => !v.done).length
+        },
+        all() {
+          return this.todos.length
         }
       },
       methods: {
