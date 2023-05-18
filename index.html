@@ -22,7 +22,8 @@
       {{ todos.length }}
     </div> -->
     <div>
-      {{ active }} / {{ all }}
+      全选<input type="checkbox" v-model="allDone">
+      <span>{{ active }} / {{ all }}</span>
     </div>
   </div>
   <script src="https://unpkg.com/vue@next"></script>
@@ -43,6 +44,18 @@
         },
         all() {
           return this.todos.length
+        },
+        allDone: {
+          // 计算属性默认只有get用来获取值
+          get() {
+            return this.active === 0
+          },
+          // 计算属性set用来改变值
+          set(val) {
+            this.todos.forEach(todo => {
+              todo.done = val
+            })
+          }
         }
       },
       methods: {
