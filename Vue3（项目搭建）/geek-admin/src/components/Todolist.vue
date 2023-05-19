@@ -1,5 +1,7 @@
 <template>
   <div>
+    --{{ x }}<br>
+    --{{ y }}
     <input type="text" v-model="title" @keydown.enter="addTodo" />
     <button v-if="active < all" @click="clear">清理</button>
     <ul v-if="todos.length">
@@ -18,7 +20,9 @@
 
 <script setup>
 import { useTodos } from '@/utils/useTodos.js'
+import { useMouse } from '@/utils/useMouse.js'
 let { title, todos, addTodo, clear, active, all, allDone } = useTodos()
+let { x,y } = useMouse()
 </script>
 
 <style>
