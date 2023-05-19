@@ -1,7 +1,9 @@
 <template>
   <div>
-    --{{ x }}<br>
-    --{{ y }}
+    <!-- --{{ x }}<br>
+    --{{ y }} -->
+    --{{ count }}
+    <button @click="add">累加器</button>
     <input type="text" v-model="title" @keydown.enter="addTodo" />
     <button v-if="active < all" @click="clear">清理</button>
     <ul v-if="todos.length">
@@ -21,8 +23,10 @@
 <script setup>
 import { useTodos } from '@/utils/useTodos.js'
 import { useMouse } from '@/utils/useMouse.js'
+import { useCount } from '@/utils/useCount.js'
 let { title, todos, addTodo, clear, active, all, allDone } = useTodos()
 let { x,y } = useMouse()
+let { count,add } = useCount()
 </script>
 
 <style>
