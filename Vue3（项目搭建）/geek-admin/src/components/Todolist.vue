@@ -1,19 +1,31 @@
 <template>
   <div>
-    <h1 @click="add">{{ count }}</h1>
+    <input type="text" v-model="title" @keydown.enter="addTodo" />
+    <ul v-if="todos.length">
+      <li v-for="todo in todos">
+        <input type="checkbox" v-model="todo.done">
+        <span :class="{ done: todo.done }">{{ todo.title }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-let count = ref(1)
-function add () {
-  count.value++
+import {ref} from "vue"
+let title = ref("");
+let todos = ref([{title:"学习",done:false}])
+function addTodo() {
+  todos.value.push({
+    title: title.value,
+    done: false,
+  })
+  title.value = ""
 }
 </script>
 
 <style>
-h1 {
-  color: red;
+.done {
+  color: gray;
+  text-decoration: line-through;
 }
 </style>
