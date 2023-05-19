@@ -2,7 +2,7 @@
   <div>
     <!-- --{{ x }}<br>
     --{{ y }} -->
-    --{{ count }}
+    <h1>{{ count }}</h1>
     <button @click="add">累加器</button>
     <input type="text" v-model="title" @keydown.enter="addTodo" />
     <button v-if="active < all" @click="clear">清理</button>
@@ -26,12 +26,15 @@ import { useMouse } from '@/utils/useMouse.js'
 import { useCount } from '@/utils/useCount.js'
 let { title, todos, addTodo, clear, active, all, allDone } = useTodos()
 let { x,y } = useMouse()
-let { count,add } = useCount()
+let { count,add,color } = useCount()
 </script>
 
-<style>
+<style scoped>
 .done {
   color: gray;
   text-decoration: line-through;
+}
+h1 {
+  color:v-bind(color)
 }
 </style>
