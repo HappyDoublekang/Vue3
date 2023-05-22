@@ -5,6 +5,10 @@
     <h1>{{ count }}</h1>
     <h1>{{ obj }}</h1>
     <h1>{{ double }}</h1>
+    <Rate :value="score" />
+    <Rate :value="3" />
+    <Rate :value="4" theme="red" />
+    <Rate :value="1" theme="green" />
     <button @click="add">累加器</button>
     <input type="text" v-model="title" @keydown.enter="addTodo" />
     <button v-if="active < all" @click="clear">清理</button>
@@ -23,12 +27,15 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 import { useTodos } from '@/utils/useTodos.js'
 import { useMouse } from '@/utils/useMouse.js'
 import { useCount } from '@/utils/useCount.js'
+import Rate from './Rate.vue'
 let { title, todos, addTodo, clear, active, all, allDone } = useTodos()
 let { x,y } = useMouse()
 let { count,add,color, obj, double } = useCount()
+let score = ref(3)
 </script>
 
 <style scoped>
