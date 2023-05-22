@@ -1,5 +1,6 @@
 <template>
   <div :style="fontstyle">
+    <slot></slot>
     <div class="rate" @mouseout="mouseOut">
       <span @mouseover="mouseOver(num)" v-for="num in 5">☆</span>
       <span class="hollow" :style="fontwidth">

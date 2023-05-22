@@ -5,7 +5,9 @@
     <h1>{{ count }}</h1>
     <h1>{{ obj }}</h1>
     <h1>{{ double }}</h1>
-    <Rate :value="score" @update-rate="update" />
+    <Rate :value="score" @update-rate="update">
+      111111
+    </Rate>
     <!-- <Rate :value="3" />
     <Rate :value="4" theme="red" /> -->
     <!-- <Rate :value="3.5" theme="green" /> -->
