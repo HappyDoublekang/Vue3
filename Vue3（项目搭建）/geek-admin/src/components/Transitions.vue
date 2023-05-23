@@ -1,6 +1,8 @@
 <template>
   <button @click="toggle">click</button>
-  <h1 v-if="showTitle">你好Vue3</h1>
+  <transition name="fase">
+    <h1 v-if="showTitle">你好Vue3</h1>
+  </transition>
 </template>
 
 <script setup>

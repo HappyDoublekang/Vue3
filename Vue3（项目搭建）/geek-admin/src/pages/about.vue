@@ -3,12 +3,13 @@
   <div class="box" :style="{width:width+'px'}"></div>
   <div class="box1"></div>
   <button @click="change">click</button>
-  <Transition></Transition>
+  <Transitions></Transitions>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import Transition from '../components/Transition.vue'
+import Transitions from '../components/Transitions.vue'
+
 let width = ref(100)
 function change() {
   width.value += 100
